@@ -1,0 +1,7 @@
+variable "var_a" {
+    value "test" {}
+}
+
+variable "var_b" {
+    value "abb" {}
+}
