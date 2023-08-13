@@ -9,7 +9,6 @@ step "first-script" {
             Octopus.Action.Script.ScriptSource = "Inline"
             Octopus.Action.Script.Syntax = "Bash"
         }
-        worker_pool = "default-worker-pool"
     }
 }
 
@@ -43,9 +42,22 @@ step "deploy-raw-kubernetes-yaml" {
                         image: nginx:1.14.2
                         ports:
                         - containerPort: 5000
-                    EOT
+                EOT
             Octopus.Action.Script.ScriptSource = "Inline"
         }
-        worker_pool_variable = ""
+    }
+}
+
+step "run-a-script" {
+    name = "Run a Script"
+
+    action {
+        action_type = "Octopus.Script"
+        properties = {
+            Octopus.Action.RunOnServer = "true"
+            Octopus.Action.Script.ScriptBody = "echo \"hey\""
+            Octopus.Action.Script.ScriptSource = "Inline"
+            Octopus.Action.Script.Syntax = "Bash"
+        }
     }
 }
