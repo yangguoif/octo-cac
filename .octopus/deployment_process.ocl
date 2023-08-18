@@ -42,8 +42,36 @@ step "deploy-raw-kubernetes-yaml" {
                         image: nginx:1.14.2
                         ports:
                         - containerPort: 5000
-                    EOT
+                EOT
             Octopus.Action.Script.ScriptSource = "Inline"
+        }
+    }
+}
+
+step "2nd-script" {
+    name = "2nd script"
+
+    action {
+        action_type = "Octopus.Script"
+        properties = {
+            Octopus.Action.RunOnServer = "true"
+            Octopus.Action.Script.ScriptBody = "hello"
+            Octopus.Action.Script.ScriptSource = "Inline"
+            Octopus.Action.Script.Syntax = "Bash"
+        }
+    }
+}
+
+step "4th-script" {
+    name = "4th script"
+
+    action {
+        action_type = "Octopus.Script"
+        properties = {
+            Octopus.Action.RunOnServer = "true"
+            Octopus.Action.Script.ScriptBody = "hey"
+            Octopus.Action.Script.ScriptSource = "Inline"
+            Octopus.Action.Script.Syntax = "PowerShell"
         }
     }
 }
