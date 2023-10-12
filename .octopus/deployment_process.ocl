@@ -25,3 +25,17 @@ step "another" {
         }
     }
 }
+
+step "more" {
+    name = "more"
+
+    action {
+        action_type = "Octopus.Script"
+        properties = {
+            Octopus.Action.RunOnServer = "true"
+            Octopus.Action.Script.ScriptBody = "echo 1"
+            Octopus.Action.Script.ScriptSource = "Inline"
+            Octopus.Action.Script.Syntax = "Bash"
+        }
+    }
+}
