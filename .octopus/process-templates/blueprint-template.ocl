@@ -2,7 +2,7 @@ name = "blueprint template"
 description = "**test template**"
 
 step "run-a-script" {
-    name = "Run a Script"
+    name = "Single step in blueprint"
 
     action {
         action_type = "Octopus.Script"
@@ -18,10 +18,11 @@ step "run-a-script" {
 }
 
 step "deploy-kubernetes-yaml" {
-    name = "Deploy Kubernetes YAML"
+    name = "k8s yaml in blueprint parent"
 
-    action {
+    action "deploy-kubernetes-yaml" {
         action_type = "Octopus.KubernetesDeployRawYaml"
+        name = "k8s yaml in blueprint parent"
         properties = {
             Octopus.Action.Kubernetes.DeploymentTimeout = "180"
             Octopus.Action.Kubernetes.ResourceStatusCheck = "True"
@@ -48,6 +49,19 @@ step "deploy-kubernetes-yaml" {
                               number: 80
                 EOT
             Octopus.Action.Script.ScriptSource = "Inline"
+        }
+        worker_pool_variable = ""
+    }
+
+    action "children-from-blueprint-k8s" {
+        action_type = "Octopus.Script"
+        name = "children from blueprint k8s"
+        properties = {
+            Octopus.Action.RunOnServer = "false"
+            Octopus.Action.Script.ScriptBody = "echo 0"
+            Octopus.Action.Script.ScriptSource = "Inline"
+            Octopus.Action.Script.Syntax = "Bash"
+            OctopusUseBundledTooling = "False"
         }
         worker_pool_variable = ""
     }
