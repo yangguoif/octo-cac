@@ -19,6 +19,7 @@ step "run-a-script" {
 
 step "deploy-kubernetes-yaml" {
     name = "k8s yaml in blueprint parent"
+    start_trigger = "StartWithPrevious"
 
     action "deploy-kubernetes-yaml" {
         action_type = "Octopus.KubernetesDeployRawYaml"
