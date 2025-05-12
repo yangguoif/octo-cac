@@ -68,3 +68,19 @@ step "deploy-kubernetes-yaml" {
         worker_pool_variable = ""
     }
 }
+
+step "last-step-in-blueprint" {
+    name = "last step in blueprint"
+
+    action {
+        action_type = "Octopus.Script"
+        properties = {
+            Octopus.Action.RunOnServer = "false"
+            Octopus.Action.Script.ScriptBody = "echo 0"
+            Octopus.Action.Script.ScriptSource = "Inline"
+            Octopus.Action.Script.Syntax = "Bash"
+            OctopusUseBundledTooling = "False"
+        }
+        worker_pool_variable = ""
+    }
+}
