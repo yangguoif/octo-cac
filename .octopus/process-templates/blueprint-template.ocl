@@ -6,7 +6,7 @@ step "run-a-script" {
 
     action {
         action_type = "Octopus.Script"
-        notes = "** a note in blueprints **"
+        notes = "**a note in blueprints**"
         properties = {
             Octopus.Action.RunOnServer = "false"
             Octopus.Action.Script.ScriptBody = "echo 0"
