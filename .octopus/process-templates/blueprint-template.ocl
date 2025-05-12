@@ -1,4 +1,4 @@
-name = "blueprint template"
+name = "blueprint template the first one"
 description = "**test template**"
 
 step "run-a-script" {
