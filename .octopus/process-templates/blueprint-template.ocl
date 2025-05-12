@@ -71,6 +71,7 @@ step "deploy-kubernetes-yaml" {
 
 step "last-step-in-blueprint" {
     name = "last step in blueprint"
+    start_trigger = "StartWithPrevious"
 
     action {
         action_type = "Octopus.Script"
