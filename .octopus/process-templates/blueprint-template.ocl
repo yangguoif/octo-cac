@@ -6,6 +6,7 @@ step "run-a-script" {
 
     action {
         action_type = "Octopus.Script"
+        is_disabled = true
         properties = {
             Octopus.Action.RunOnServer = "false"
             Octopus.Action.Script.ScriptBody = "echo 0"
@@ -23,6 +24,7 @@ step "deploy-kubernetes-yaml" {
 
     action "deploy-kubernetes-yaml" {
         action_type = "Octopus.KubernetesDeployRawYaml"
+        is_disabled = true
         name = "k8s yaml in blueprint parent"
         properties = {
             Octopus.Action.Kubernetes.DeploymentTimeout = "180"
@@ -56,6 +58,7 @@ step "deploy-kubernetes-yaml" {
 
     action "children-from-blueprint-k8s" {
         action_type = "Octopus.Script"
+        is_disabled = true
         name = "children from blueprint k8s"
         properties = {
             Octopus.Action.RunOnServer = "false"
