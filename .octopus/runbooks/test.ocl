@@ -10,4 +10,23 @@ run_retention_policy {
     quantity_to_keep = 100
 }
 
-process {}
+process {
+    step "run-a-script" {
+        name = "Run a Script"
+        properties = {
+            Octopus.Action.TargetRoles = "aa"
+        }
+
+        action {
+            action_type = "Octopus.Script"
+            properties = {
+                Octopus.Action.RunOnServer = "false"
+                Octopus.Action.Script.ScriptBody = "echo 0"
+                Octopus.Action.Script.ScriptSource = "Inline"
+                Octopus.Action.Script.Syntax = "Bash"
+                OctopusUseBundledTooling = "False"
+            }
+            worker_pool_variable = ""
+        }
+    }
+}
