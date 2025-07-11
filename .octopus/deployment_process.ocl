@@ -1,5 +1,5 @@
 step "run-a-script-another" {
-    name = "Run a Script another"
+    name = "Run a Script another -a"
 
     action {
         action_type = "Octopus.Script"
