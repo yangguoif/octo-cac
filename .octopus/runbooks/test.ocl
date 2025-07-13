@@ -12,7 +12,7 @@ run_retention_policy {
 
 process {
     step "run-a-script" {
-        name = "Run a Script"
+        name = "test step 1"
         properties = {
             Octopus.Action.TargetRoles = "aa"
         }
