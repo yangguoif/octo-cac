@@ -2,7 +2,7 @@ name = "another test"
 description = ""
 
 step "run-a-script" {
-    name = "Run a Script"
+    name = "Run a Script test"
 
     action {
         action_type = "Octopus.Script"
