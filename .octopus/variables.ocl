@@ -1,0 +1,3 @@
+variable "newvariable" {
+    value "a" {}
+}
