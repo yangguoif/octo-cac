@@ -16,7 +16,7 @@ step "run-a-script-another" {
 }
 
 step "second-step" {
-    name = "second step"
+    name = "second step abc"
 
     action {
         action_type = "Octopus.Script"
