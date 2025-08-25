@@ -1,5 +1,5 @@
 step "run-a-script-another" {
-    name = "Run a Script another -a"
+    name = "Run a Script in main branch"
 
     action {
         action_type = "Octopus.Script"
@@ -8,7 +8,7 @@ step "run-a-script-another" {
             Octopus.Action.Script.ScriptBody = <<-EOT
                 echo 0
                 echo 0
-                    EOT
+                EOT
             Octopus.Action.Script.ScriptSource = "Inline"
             Octopus.Action.Script.Syntax = "Bash"
         }
