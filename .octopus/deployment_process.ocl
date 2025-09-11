@@ -1,10 +1,9 @@
 step "run-a-script-another" {
-    name = "Run a Script in test 2 branch"
+    name = "Run a Script in testabc"
 
     action {
         action_type = "Octopus.Script"
         properties = {
-            Octopus.Action.RunOnServer = "true"
             Octopus.Action.Script.ScriptBody = <<-EOT
                 echo 0
                 echo 0
@@ -12,6 +11,7 @@ step "run-a-script-another" {
             Octopus.Action.Script.ScriptSource = "Inline"
             Octopus.Action.Script.Syntax = "Bash"
         }
+        worker_pool = "default-worker-pool"
     }
 }
 
