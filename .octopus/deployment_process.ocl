@@ -1,5 +1,5 @@
 step "run-a-script-another" {
-    name = "in test 1 branch test"
+    name = "in test 1 branch"
 
     action {
         action_type = "Octopus.Script"
