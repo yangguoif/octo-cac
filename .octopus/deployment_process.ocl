@@ -8,7 +8,7 @@ step "run-a-script-another" {
             Octopus.Action.Script.ScriptBody = <<-EOT
                 echo 0
                 echo 0
-                    EOT
+                EOT
             Octopus.Action.Script.ScriptSource = "Inline"
             Octopus.Action.Script.Syntax = "Bash"
         }
@@ -27,5 +27,26 @@ step "second-step" {
             Octopus.Action.Script.Syntax = "Bash"
             OctopusUseBundledTooling = "False"
         }
+    }
+}
+
+step "github" {
+    name = "github"
+    properties = {
+        Octopus.Action.TargetRoles = "version-controlled-targets"
+    }
+
+    action {
+        properties = {
+            commitId = "master"
+            draft = "false"
+            Octopus.Action.RunOnServer = "false"
+            Octopus.Action.Template.Id = "ActionTemplates-1"
+            Octopus.Action.Template.Version = "5"
+            preRelease = "false"
+            releaseNotes = "#{Octopus.Release.Notes}"
+            versionNumber = "#{Octopus.Release.Number}"
+        }
+        worker_pool_variable = ""
     }
 }
